@@ -272,10 +272,24 @@ The purpose of this style guide is to document the conventions that are expected
 
   ```javascript
   /* avoid */
+  $timeout(function() {
+    // do something
+  }, 5000);
+  ```
+
+  ```javascript
+  /* avoid */
   angular
       .module('app')
       .controller('DashboardController', function() { })
       .factory('logger', function() { });
+  ```
+
+  ```javascript
+  /* recommended */
+  $timeout(function delayMessageDisplay() {
+    // do something
+  }, 5000);
   ```
 
   ```javascript
