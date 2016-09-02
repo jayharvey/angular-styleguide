@@ -2041,27 +2041,23 @@ The purpose of this style guide is to document the conventions that are expected
 ### Factory and Service Names
 ###### [Style [Y125](#style-y125)]
 
-  - Use consistent names for all factories and services named after their feature. Use camel-casing for services and factories. Avoid prefixing factories and services with `$`. Only suffix service and factories with `Service` when it is not clear what they are (i.e. when they are nouns).
+  - Use consistent names for all factories and services named after their feature. Use camel-casing for services and factories. Avoid prefixing factories and services with `$`.
 
     *Why?*: Provides a consistent way to quickly identify and reference factories.
 
     *Why?*: Avoids name collisions with built-in factories and services that use the `$` prefix.
-
-    *Why?*: Clear service names such as `logger` do not require a suffix.
-
-    *Why?*: Service names such as `avengers` are nouns and require a suffix and should be named `avengersService`.
 
     ```javascript
     /**
      * recommended
      */
 
-    // logger.service.js
+    // log.service.js
     angular
         .module
-        .factory('logger', logger);
+        .factory('logService', logService);
 
-    function logger() { }
+    function logService() { }
     ```
 
     ```javascript
