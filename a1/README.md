@@ -299,6 +299,85 @@ The purpose of this style guide is to document the conventions that are expected
 
 **[Back to top](#table-of-contents)**
 
+## Code Structure/Layout
+
+This conventions applies to Controllers, Services and Factories.
+
+### Function Declarations to Hide Implementation Details
+###### [Style [Y034](#style-y034)]
+
+  - Use function declarations to hide implementation details. Keep your bindable members up top. When you need to bind a function in a controller, point it to a function declaration that appears later in the file. This is tied directly to the section Bindable Members Up Top. For more details see [this post](http://www.johnpapa.net/angular-function-declarations-function-expressions-and-readable-code/).
+
+    *Why?*: Placing bindable members at the top makes it easy to read and helps you instantly identify which members of the controller can be bound and used in the View. (Same as above.)
+
+    *Why?*: Placing the implementation details of a function later in the file moves that complexity out of view so you can see the important stuff up top.
+
+    *Why?*: Function declarations are hoisted so there are no concerns over using a function before it is defined (as there would be with function expressions).
+
+    *Why?*: You never have to worry with function declarations that moving `var a` before `var b` will break your code because `a` depends on `b`.
+
+    *Why?*: Order is critical with function expressions
+
+  ```javascript
+  /**
+   * avoid
+   * Using function expressions.
+   */
+  function AvengersController(avengersService, logger) {
+      var vm = this;
+      vm.avengers = [];
+      vm.title = 'Avengers';
+
+      var activate = function() {
+          return getAvengers().then(function() {
+              logger.info('Activated Avengers View');
+          });
+      }
+
+      var getAvengers = function() {
+          return avengersService.getAvengers().then(function(data) {
+              vm.avengers = data;
+              return vm.avengers;
+          });
+      }
+
+      vm.getAvengers = getAvengers;
+
+      activate();
+  }
+  ```
+
+  Notice that the important stuff is scattered in the preceding example. In the example below, notice that the important stuff is up top. For example, the members bound to the controller such as `vm.avengers` and `vm.title`. The implementation details are down below. This is just easier to read.
+
+  ```javascript
+  /*
+   * recommend
+   * Using function declarations
+   * and bindable members up top.
+   */
+  function AvengersController(avengersService, logger) {
+      var vm = this;
+      vm.avengers = [];
+      vm.getAvengers = getAvengers;
+      vm.title = 'Avengers';
+
+      activate();
+
+      function activate() {
+          return getAvengers().then(function() {
+              logger.info('Activated Avengers View');
+          });
+      }
+
+      function getAvengers() {
+          return avengersService.getAvengers().then(function(data) {
+              vm.avengers = data;
+              return vm.avengers;
+          });
+      }
+  }
+  ```
+
 ## Controllers
 
 ### controllerAs View Syntax
@@ -504,81 +583,6 @@ The purpose of this style guide is to document the conventions that are expected
       vm.search = search;
       vm.sessions = [];
       vm.title = 'Sessions';
-  }
-  ```
-
-### Function Declarations to Hide Implementation Details
-###### [Style [Y034](#style-y034)]
-
-  - Use function declarations to hide implementation details. Keep your bindable members up top. When you need to bind a function in a controller, point it to a function declaration that appears later in the file. This is tied directly to the section Bindable Members Up Top. For more details see [this post](http://www.johnpapa.net/angular-function-declarations-function-expressions-and-readable-code/).
-
-    *Why?*: Placing bindable members at the top makes it easy to read and helps you instantly identify which members of the controller can be bound and used in the View. (Same as above.)
-
-    *Why?*: Placing the implementation details of a function later in the file moves that complexity out of view so you can see the important stuff up top.
-
-    *Why?*: Function declarations are hoisted so there are no concerns over using a function before it is defined (as there would be with function expressions).
-
-    *Why?*: You never have to worry with function declarations that moving `var a` before `var b` will break your code because `a` depends on `b`.
-
-    *Why?*: Order is critical with function expressions
-
-  ```javascript
-  /**
-   * avoid
-   * Using function expressions.
-   */
-  function AvengersController(avengersService, logger) {
-      var vm = this;
-      vm.avengers = [];
-      vm.title = 'Avengers';
-
-      var activate = function() {
-          return getAvengers().then(function() {
-              logger.info('Activated Avengers View');
-          });
-      }
-
-      var getAvengers = function() {
-          return avengersService.getAvengers().then(function(data) {
-              vm.avengers = data;
-              return vm.avengers;
-          });
-      }
-
-      vm.getAvengers = getAvengers;
-
-      activate();
-  }
-  ```
-
-  Notice that the important stuff is scattered in the preceding example. In the example below, notice that the important stuff is up top. For example, the members bound to the controller such as `vm.avengers` and `vm.title`. The implementation details are down below. This is just easier to read.
-
-  ```javascript
-  /*
-   * recommend
-   * Using function declarations
-   * and bindable members up top.
-   */
-  function AvengersController(avengersService, logger) {
-      var vm = this;
-      vm.avengers = [];
-      vm.getAvengers = getAvengers;
-      vm.title = 'Avengers';
-
-      activate();
-
-      function activate() {
-          return getAvengers().then(function() {
-              logger.info('Activated Avengers View');
-          });
-      }
-
-      function getAvengers() {
-          return avengersService.getAvengers().then(function(data) {
-              vm.avengers = data;
-              return vm.avengers;
-          });
-      }
   }
   ```
 
