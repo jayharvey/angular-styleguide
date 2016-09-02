@@ -11,6 +11,7 @@ The purpose of this style guide is to document the conventions that are expected
   1. [Single Responsibility](#single-responsibility)
   1. [IIFE](#iife)
   1. [Modules](#modules)
+  1. [Code Structure/Layout](#code-structure-layout)
   1. [Controllers](#controllers)
   1. [Services](#services)
   1. [Factories](#factories)
@@ -301,7 +302,7 @@ The purpose of this style guide is to document the conventions that are expected
 
 ## Code Structure/Layout
 
-This conventions applies to Controllers, Services and Factories.
+This convention applies to Controllers, Services and Factories.
 
 ### Function Declarations to Hide Implementation Details
 ###### [Style [Y034](#style-y034)]
