@@ -1948,22 +1948,6 @@ The purpose of this style guide is to document the conventions that are expected
 
     ```javascript
     /**
-     * common options
-     */
-
-    // Controllers
-    avengers.js
-    avengers.controller.js
-    avengersController.js
-
-    // Services/Factories
-    logger.js
-    logger.service.js
-    loggerService.js
-    ```
-
-    ```javascript
-    /**
      * recommended
      */
 
@@ -1991,17 +1975,6 @@ The purpose of this style guide is to document the conventions that are expected
     // directives
     avenger-profile.directive.js
     avenger-profile.directive.spec.js
-    ```
-
-  Note: Another common convention is naming controller files without the word `controller` in the file name such as `avengers.js` instead of `avengers.controller.js`. All other conventions still hold using a suffix of the type. Controllers are the most common type of component so this just saves typing and is still easily identifiable. I recommend you choose 1 convention and be consistent for your team. My preference is `avengers.controller.js` identifying the `AvengersController`.
-
-    ```javascript
-    /**
-     * recommended
-     */
-    // Controllers
-    avengers.js
-    avengers.spec.js
     ```
 
 ### Test File Names
