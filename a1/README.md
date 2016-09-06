@@ -31,7 +31,7 @@ The purpose of this style guide is to document the conventions that are expected
   1. [Animations](#animations)
   1. [Comments](#comments)
   1. [JSHint](#js-hint)
-  1. [JSCS](#jscs)
+  1. [ESLint](#eslint)
   1. [Constants](#constants)
   1. [File Templates and Snippets](#file-templates-and-snippets)
   1. [Routing](#routing)
@@ -2794,12 +2794,12 @@ Unit testing helps maintain clean code, as such I included some of my recommenda
 
 **[Back to top](#table-of-contents)**
 
-## JSCS
+## ESLint
 
 ### Use an Options File
 ###### [Style [Y235](#style-y235)]
 
-  - Use JSCS for checking your coding styles your JavaScript and be sure to customize the JSCS options file and include in source control. See the [JSCS docs](http://jscs.info/) for details on the options.
+  - Use ESLint for checking your JavaScript coding styles and be sure to customize the options file and include it in source control. See the [ESLint docs](http://http://eslint.org/) for details on the options. Consider using the [eslint-plugin-angular](https://github.com/Gillespie59/eslint-plugin-angular) plugin.
 
     *Why?*: Provides a first alert prior to committing any code to source control.
 
