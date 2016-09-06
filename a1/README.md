@@ -1721,8 +1721,6 @@ This convention applies to Controllers, Services and Factories.
 
     *Why?*: [`ng-min`](https://github.com/btford/ngmin) is deprecated
 
-    >I prefer Gulp as I feel it is easier to write, to read, and to debug.
-
     The following code is not using minification safe dependencies.
 
     ```javascript
@@ -2616,7 +2614,7 @@ Unit testing helps maintain clean code, as such I included some of my recommenda
 
     *Why?*: Having the spec nearby makes it easier for the source code reader to learn how the component is supposed to be used and to discover its known limitations.
 
-    *Why?*: Separating specs so they are not in a distributed build is easy with gulp.
+    *Why?*: Separating specs so they are not in a distributed build is easy with [Gulp](http://gulpjs.com).
 
     ```
     /src/client/app/customers/customer-detail.controller.js
