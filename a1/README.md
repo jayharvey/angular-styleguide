@@ -2579,8 +2579,6 @@ Unit testing helps maintain clean code, as such I included some of my recommenda
     "jasmine": true,
     ```
 
-  ![Testing Tools](https://raw.githubusercontent.com/johnpapa/angular-styleguide/master/a1/assets/testing-tools.png)
-
 ### Organizing Tests
 ###### [Style [Y197](#style-y197)]
 
