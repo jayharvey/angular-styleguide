@@ -2543,9 +2543,7 @@ Unit testing helps maintain clean code, as such I included some of my recommenda
 
   - Use [Sinon](http://sinonjs.org/) for stubbing and spying.
 
-    *Why?*: Sinon works well with both Jasmine and Mocha and extends the stubbing and spying features they offer.
-
-    *Why?*: Sinon makes it easier to toggle between Jasmine and Mocha, if you want to try both.
+    *Why?*: Sinon works well with Jasmine and extends the stubbing and spying features they offer.
 
     *Why?*: Sinon has descriptive messages when tests fail the assertions.
 
@@ -2568,7 +2566,7 @@ Unit testing helps maintain clean code, as such I included some of my recommenda
 ### Alleviate Globals for Linter Rules on Tests
 ###### [Style [Y196](#style-y196)]
 
-  - Relax the rules on your test code to allow for common globals such as `describe` and `expect`. Relax the rules for expressions, as Mocha uses these.
+  - Relax the rules on your test code to allow for common globals such as `describe` and `expect`. Relax the rules for expressions.
 
     *Why?*: Your tests are code and require the same attention and code quality rules as all of your production code. However, global variables used by the testing framework, for example, can be relaxed by including this in your test specs.
 
@@ -2579,7 +2577,6 @@ Unit testing helps maintain clean code, as such I included some of my recommenda
 
     ```javascript
     "jasmine": true,
-    "mocha": true,
     ```
 
   ![Testing Tools](https://raw.githubusercontent.com/johnpapa/angular-styleguide/master/a1/assets/testing-tools.png)
