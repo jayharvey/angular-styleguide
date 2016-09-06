@@ -30,8 +30,7 @@ The purpose of this style guide is to document the conventions that are expected
   1. [Testing](#testing)
   1. [Animations](#animations)
   1. [Comments](#comments)
-  1. [JSHint](#js-hint)
-  1. [ESLint](#eslint)
+  1. [Linters](#linters)
   1. [Constants](#constants)
   1. [File Templates and Snippets](#file-templates-and-snippets)
   1. [Routing](#routing)
@@ -2581,11 +2580,11 @@ Unit testing helps maintain clean code, as such I included some of my recommenda
 ### Code Analysis
 ###### [Style [Y195](#style-y195)]
 
-  - Run JSHint on your tests.
+  - Run a linter on your tests.
 
-    *Why?*: Tests are code. JSHint can help identify code quality issues that may cause the test to work improperly.
+    *Why?*: Tests are code. [Linters](#linters) can help identify code quality issues that may cause the test to work improperly.
 
-### Alleviate Globals for JSHint Rules on Tests
+### Alleviate Globals for Linter Rules on Tests
 ###### [Style [Y196](#style-y196)]
 
   - Relax the rules on your test code to allow for common globals such as `describe` and `expect`. Relax the rules for expressions, as Mocha uses these.
@@ -2718,85 +2717,15 @@ Unit testing helps maintain clean code, as such I included some of my recommenda
 
 **[Back to top](#table-of-contents)**
 
-## JS Hint
+## Linters
 
-### Use an Options File
-###### [Style [Y230](#style-y230)]
+Use a linter to clean up the code.
 
-  - Use JS Hint for linting your JavaScript and be sure to customize the JS Hint options file and include in source control. See the [JS Hint docs](http://jshint.com/docs/) for details on the options.
+### ESLint
 
-    *Why?*: Provides a first alert prior to committing any code to source control.
+This is the preferred linter.
 
-    *Why?*: Provides consistency across your team.
-
-    ```javascript
-    {
-        "bitwise": true,
-        "camelcase": true,
-        "curly": true,
-        "eqeqeq": true,
-        "esversion": 6,
-        "forin": true,
-        "freeze": true,
-        "immed": true,
-        "indent": 4,
-        "latedef": "nofunc",
-        "newcap": true,
-        "noarg": true,
-        "noempty": true,
-        "nonbsp": true,
-        "nonew": true,
-        "plusplus": false,
-        "quotmark": "single",
-        "undef": true,
-        "unused": false,
-        "strict": false,
-        "maxparams": 10,
-        "maxdepth": 5,
-        "maxstatements": 40,
-        "maxcomplexity": 8,
-        "maxlen": 120,
-        "asi": false,
-        "boss": false,
-        "debug": false,
-        "eqnull": true,
-        "esnext": false,
-        "evil": false,
-        "expr": false,
-        "funcscope": false,
-        "globalstrict": false,
-        "iterator": false,
-        "lastsemic": false,
-        "laxbreak": false,
-        "laxcomma": false,
-        "loopfunc": true,
-        "maxerr": 50,
-        "moz": false,
-        "multistr": false,
-        "notypeof": false,
-        "proto": false,
-        "scripturl": false,
-        "shadow": false,
-        "sub": true,
-        "supernew": false,
-        "validthis": false,
-        "noyield": false,
-
-        "browser": true,
-        "node": true,
-
-        "globals": {
-            "angular": false,
-            "$": false
-        }
-    }
-    ```
-
-**[Back to top](#table-of-contents)**
-
-## ESLint
-
-### Use an Options File
+#### Use an Options File
 ###### [Style [Y235](#style-y235)]
 
   - Use ESLint for checking your JavaScript coding styles and be sure to customize the options file and include it in source control. See the [ESLint docs](http://http://eslint.org/) for details on the options. Consider using the [eslint-plugin-angular](https://github.com/Gillespie59/eslint-plugin-angular) plugin.
@@ -2879,6 +2808,84 @@ Unit testing helps maintain clean code, as such I included some of my recommenda
         "requireDotNotation": null,
         "requireMultipleVarDecl": null,
         "requireParenthesesAroundIIFE": true
+    }
+    ```
+
+**[Back to top](#table-of-contents)**
+
+### JS Hint
+
+ESLint (above) is the preferred linter.
+
+#### Use an Options File
+###### [Style [Y230](#style-y230)]
+
+  - Use JS Hint for linting your JavaScript and be sure to customize the JS Hint options file and include in source control. See the [JS Hint docs](http://jshint.com/docs/) for details on the options.
+
+    *Why?*: Provides a first alert prior to committing any code to source control.
+
+    *Why?*: Provides consistency across your team.
+
+    ```javascript
+    {
+        "bitwise": true,
+        "camelcase": true,
+        "curly": true,
+        "eqeqeq": true,
+        "esversion": 6,
+        "forin": true,
+        "freeze": true,
+        "immed": true,
+        "indent": 4,
+        "latedef": "nofunc",
+        "newcap": true,
+        "noarg": true,
+        "noempty": true,
+        "nonbsp": true,
+        "nonew": true,
+        "plusplus": false,
+        "quotmark": "single",
+        "undef": true,
+        "unused": false,
+        "strict": false,
+        "maxparams": 10,
+        "maxdepth": 5,
+        "maxstatements": 40,
+        "maxcomplexity": 8,
+        "maxlen": 120,
+        "asi": false,
+        "boss": false,
+        "debug": false,
+        "eqnull": true,
+        "esnext": false,
+        "evil": false,
+        "expr": false,
+        "funcscope": false,
+        "globalstrict": false,
+        "iterator": false,
+        "lastsemic": false,
+        "laxbreak": false,
+        "laxcomma": false,
+        "loopfunc": true,
+        "maxerr": 50,
+        "moz": false,
+        "multistr": false,
+        "notypeof": false,
+        "proto": false,
+        "scripturl": false,
+        "shadow": false,
+        "sub": true,
+        "supernew": false,
+        "validthis": false,
+        "noyield": false,
+
+        "browser": true,
+        "node": true,
+
+        "globals": {
+            "angular": false,
+            "$": false
+        }
     }
     ```
 
