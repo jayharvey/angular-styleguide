@@ -2697,7 +2697,9 @@ Unit testing helps maintain clean code, as such I included some of my recommenda
 
 ## Linters
 
-Use a linter to clean up the code.
+Use a linter to identify areas of the code that need to be cleaned up per defined standards.
+
+* TODO: Standards have not yet been defined. When it is the file will be included in the repo.
 
 ### ESLint
 
