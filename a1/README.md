@@ -1948,7 +1948,7 @@ This convention applies to Controllers, Services and Factories.
 ### Naming Guidelines
 ###### [Style [Y120](#style-y120)]
 
-  - Use consistent names for all components following a pattern that describes the component's feature then (optionally) its type. My recommended pattern is `feature.type.js`. There are 2 names for most assets:
+  - Use consistent names for all components following a pattern that describes the component's feature then its type (i.e. `feature.type.js`). There are 2 names for most assets:
     * the file name (`avengers.controller.js`)
     * the registered component name with Angular (`AvengersController`)
 
