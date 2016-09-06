@@ -1831,8 +1831,6 @@ This convention applies to Controllers, Services and Factories.
 
     *Why?*: Provides a consistent way to handle uncaught Angular exceptions for development-time or run-time.
 
-    Note: Another option is to override the service instead of using a decorator. This is a fine option, but if you want to keep the default behavior and extend it a decorator is recommended.
-
     ```javascript
     /* recommended */
     angular
