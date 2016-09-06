@@ -2670,7 +2670,7 @@ Unit testing helps maintain clean code, as such I included some of my recommenda
 ### jsDoc
 ###### [Style [Y220](#style-y220)]
 
-  - If planning to produce documentation, use [`jsDoc`](http://usejsdoc.org/) syntax to document function names, description, params and returns. Use `@namespace` and `@memberOf` to match your app structure.
+  - Use [`jsDoc`](http://usejsdoc.org/) syntax to document function names, description, params and returns. Use `@namespace` and `@memberOf` to match your app structure.
 
     *Why?*: You can generate (and regenerate) documentation from your code, instead of writing it from scratch.
 
