@@ -29,7 +29,7 @@ The purpose of this style guide is to document the conventions that are expected
   1. [Angular $ Wrapper Services](#angular--wrapper-services)
   1. [Testing](#testing)
   1. [Animations](#animations)
-  1. [Comments](#comments)
+  1. [Documentation/Comments](#documentation-comments)
   1. [Linters](#linters)
   1. [Constants](#constants)
   1. [File Templates and Snippets](#file-templates-and-snippets)
@@ -2641,7 +2641,10 @@ Unit testing helps maintain clean code, as such I included some of my recommenda
 
 **[Back to top](#table-of-contents)**
 
-## Comments
+## Documentation/Comments
+
+* Code should be self-documenting (i.e. written in a way so that it is easy to tell what it is does). This makes comments unnecessary.
+* Some code could be unclear and difficult to read or follow (i.e. NOT self-documenting). In these cases, a helpful explanation of the code should be added as inline comments.
 
 ### jsDoc
 ###### [Style [Y220](#style-y220)]
