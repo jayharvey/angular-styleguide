@@ -317,7 +317,7 @@ The purpose of this style guide is to document the conventions that are expected
 This convention applies to Controllers, Services and Factories.
 
 ### Function Declarations to Hide Implementation Details
-###### [Style [Y034](#style-y034)]
+###### [Style [Y034](#style-y034)] & [Style [Y053](#style-y053)]
 
   - Use function declarations to hide implementation details. Keep your bindable members up top. When you need to bind a function in a controller, point it to a function declaration that appears later in the file. This is tied directly to the section Bindable Members Up Top. For more details see [this post](http://www.johnpapa.net/angular-function-declarations-function-expressions-and-readable-code/).
 
@@ -387,6 +387,89 @@ This convention applies to Controllers, Services and Factories.
               vm.avengers = data;
               return vm.avengers;
           });
+      }
+  }
+  ```
+
+  ```javascript
+  /**
+   * avoid
+   * Using function expressions
+   */
+   function dataservice($http, $location, $q, exception, logger) {
+      var isPrimed = false;
+      var primePromise;
+
+      var getAvengers = function() {
+          // implementation details go here
+      };
+
+      var getAvengerCount = function() {
+          // implementation details go here
+      };
+
+      var getAvengersCast = function() {
+         // implementation details go here
+      };
+
+      var prime = function() {
+         // implementation details go here
+      };
+
+      var ready = function(nextPromises) {
+          // implementation details go here
+      };
+
+      var service = {
+          getAvengersCast: getAvengersCast,
+          getAvengerCount: getAvengerCount,
+          getAvengers: getAvengers,
+          ready: ready
+      };
+
+      return service;
+  }
+  ```
+
+  ```javascript
+  /**
+   * recommended
+   * Using function declarations
+   * and accessible members up top.
+   */
+  function dataservice($http, $location, $q, exception, logger) {
+      var isPrimed = false;
+      var primePromise;
+
+      var service = {
+          getAvengersCast: getAvengersCast,
+          getAvengerCount: getAvengerCount,
+          getAvengers: getAvengers,
+          ready: ready
+      };
+
+      return service;
+
+      ////////////
+
+      function getAvengers() {
+          // implementation details go here
+      }
+
+      function getAvengerCount() {
+          // implementation details go here
+      }
+
+      function getAvengersCast() {
+          // implementation details go here
+      }
+
+      function prime() {
+          // implementation details go here
+      }
+
+      function ready(nextPromises) {
+          // implementation details go here
       }
   }
   ```
@@ -832,104 +915,6 @@ This convention applies to Controllers, Services and Factories.
   This way bindings are mirrored across the host object, primitive values cannot update alone using the revealing module pattern.
 
     ![Factories Using "Above the Fold"](https://raw.githubusercontent.com/johnpapa/angular-styleguide/master/a1/assets/above-the-fold-2.png)
-
-### Function Declarations to Hide Implementation Details
-###### [Style [Y053](#style-y053)]
-
-  - Use function declarations to hide implementation details. Keep your accessible members of the factory up top. Point those to function declarations that appears later in the file. For more details see [this post](http://www.johnpapa.net/angular-function-declarations-function-expressions-and-readable-code).
-
-    *Why?*: Placing accessible members at the top makes it easy to read and helps you instantly identify which functions of the factory you can access externally.
-
-    *Why?*: Placing the implementation details of a function later in the file moves that complexity out of view so you can see the important stuff up top.
-
-    *Why?*: Function declarations are hoisted so there are no concerns over using a function before it is defined (as there would be with function expressions).
-
-    *Why?*: You never have to worry with function declarations that moving `var a` before `var b` will break your code because `a` depends on `b`.
-
-    *Why?*: Order is critical with function expressions
-
-  ```javascript
-  /**
-   * avoid
-   * Using function expressions
-   */
-   function dataservice($http, $location, $q, exception, logger) {
-      var isPrimed = false;
-      var primePromise;
-
-      var getAvengers = function() {
-          // implementation details go here
-      };
-
-      var getAvengerCount = function() {
-          // implementation details go here
-      };
-
-      var getAvengersCast = function() {
-         // implementation details go here
-      };
-
-      var prime = function() {
-         // implementation details go here
-      };
-
-      var ready = function(nextPromises) {
-          // implementation details go here
-      };
-
-      var service = {
-          getAvengersCast: getAvengersCast,
-          getAvengerCount: getAvengerCount,
-          getAvengers: getAvengers,
-          ready: ready
-      };
-
-      return service;
-  }
-  ```
-
-  ```javascript
-  /**
-   * recommended
-   * Using function declarations
-   * and accessible members up top.
-   */
-  function dataservice($http, $location, $q, exception, logger) {
-      var isPrimed = false;
-      var primePromise;
-
-      var service = {
-          getAvengersCast: getAvengersCast,
-          getAvengerCount: getAvengerCount,
-          getAvengers: getAvengers,
-          ready: ready
-      };
-
-      return service;
-
-      ////////////
-
-      function getAvengers() {
-          // implementation details go here
-      }
-
-      function getAvengerCount() {
-          // implementation details go here
-      }
-
-      function getAvengersCast() {
-          // implementation details go here
-      }
-
-      function prime() {
-          // implementation details go here
-      }
-
-      function ready(nextPromises) {
-          // implementation details go here
-      }
-  }
-  ```
 
 **[Back to top](#table-of-contents)**
 
