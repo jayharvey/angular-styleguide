@@ -1168,6 +1168,8 @@ This convention applies to Controllers, Services and Factories.
 
     Note: Avoid `ng-` as these are reserved for Angular directives. Research widely used directives to avoid naming conflicts, such as `ion-` for the [Ionic Framework](http://ionicframework.com/).
 
+    Note: Use "es" as the directive prefix (for EchoStar and ECMAScript).
+
 ### Restrict to Elements and Attributes
 ###### [Style [Y074](#style-y074)]
 
@@ -2100,7 +2102,7 @@ This convention applies to Controllers, Services and Factories.
 ### Directive Component Names
 ###### [Style [Y126](#style-y126)]
 
-  - Use consistent names for all directives using camel-case. Use a short prefix to describe the area that the directives belong (some example are company prefix or project prefix).
+  - Use consistent names for all directives using camel-case. Prefix directive names with "es" (for EchoStar and ECMAScript).
 
     *Why?*: Provides a consistent way to quickly identify and reference components.
 
@@ -2112,11 +2114,11 @@ This convention applies to Controllers, Services and Factories.
     // avenger-profile.directive.js
     angular
         .module
-        .directive('xxAvengerProfile', xxAvengerProfile);
+        .directive('esAvengerProfile', esAvengerProfile);
 
-    // usage is <xx-avenger-profile> </xx-avenger-profile>
+    // usage is <es-avenger-profile> </es-avenger-profile>
 
-    function xxAvengerProfile() { }
+    function esAvengerProfile() { }
     ```
 
 ### Modules
